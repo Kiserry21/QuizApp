@@ -4,6 +4,7 @@ const questionContainerElement = document.getElementById('question-container')
 const questionElement = document.getElementById('question')
 const answerButtonsElement = document.getElementById('answer-buttons')
 const timerDivElement = document.querySelector('.timer')
+const myTimeout = setTimeout('5000');
 let shuffledQuestions, currentQuestionIndex
 
 
@@ -28,6 +29,7 @@ function setGameTime(){
 }
 
 function setNextQuestion() {
+  clearTimeout(myTimeout);setNextQuestion
   resetState()
   showQuestion(shuffledQuestions[currentQuestionIndex])
 }
