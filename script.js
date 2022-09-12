@@ -36,7 +36,7 @@ function setNextQuestion() {
 var penalty = 10 
 
 function showQuestion(question) {
-  gameTime = gameTime - penalty
+  
   questionElement.innerText = question.question
   question.answers.forEach(answer => {
     const button = document.createElement('button')
@@ -45,6 +45,8 @@ function showQuestion(question) {
     if (answer.correct) {
       button.dataset.correct = answer.correct
     }
+   
+
     button.addEventListener('click', selectAnswer)
     answerButtonsElement.appendChild(button)
   })
@@ -61,6 +63,9 @@ function resetState() {
 function selectAnswer(e) {
   const selectedButton = e.target
   const correct = selectedButton.dataset.correct
+  if (!correct) {
+    gameTime = gameTime - penalty
+  }
   setStatusClass(document.body, correct)
   Array.from(answerButtonsElement.children).forEach(button => {
     setStatusClass(button, button.dataset.correct)
@@ -79,9 +84,15 @@ function selectAnswer(e) {
 function setStatusClass(element, correct) {
   clearStatusClass(element)
   if (correct) {
+  
     element.classList.add('correct')
     element.classList.remove('wrong')
-  } else {
+
+  } 
+  
+  else {
+    console.log("incorrect")
+
     element.classList.add('wrong')
   element.classList.remove('correct')
   }
