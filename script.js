@@ -6,18 +6,86 @@ const answerButtonsElement = document.getElementById('answer-buttons')
 
 let shuffledQuestions, currentQuestionIndex
 
-startButton.addEventListener('click', startGame)
-nextButton.addEventListener('click', () => {
-  currentQuestionIndex++
-  setNextQuestion()
-})
+
+const questions = [
+  {
+    question: 'What is 30 + 2?',
+    answers: [
+      { text: '32', correct: true },
+      { text: '22', correct: false },
+      { text: '28', correct: false },
+      { text: '60', correct: false }
+    ]
+  },
+  {
+    question: 'What is the biggest country in the world?',
+    answers: [
+      { text: 'china', correct: false },
+      { text: 'Thailand', correct: false },
+      { text: 'United State of America', correct: false },
+      { text: 'Russia', correct: true }
+    ]
+  },
+  {
+    question: 'What is the most popular programming language?',
+    answers: [
+      { text: 'Phyton', correct: false },
+      { text: 'JavaScript', correct: true },
+      { text: 'Java', correct: false },
+      { text: 'CSS', correct: false }
+    ]
+  },
+  {
+    question: 'What is 10 * 2?',
+    answers: [
+      { text: '6', correct: false },
+      { text: '20', correct: true },
+      { text: '12', correct: false },
+      { text: '8', correct: false }
+    ]
+  },
+  { 
+    question: 'How many stars are in American flag?',
+    answers: [
+      { text: '62', correct: false },
+      { text: '50', correct: true },
+      { text: '32', correct: false },
+      { text: '12', correct: false } 
+    ]
+  },
+  {
+    question: 'Who is the richest person in the world?',
+    answers: [
+      { text: 'Bill Gates', correct: false },
+      { text: 'Obama', correct: false },
+      { text: 'Elon Musk', correct: true },
+      { text: 'Jeff Bezos', correct: false }
+    ]
+  },
+  {
+    question: 'What country has the highest life expectancy?',
+    answers: [
+      { text: 'China', correct: false },
+      { text: 'Hong Kong', correct: true },
+      { text: 'Canada', correct: false },
+      { text: 'Italy', correct: false }
+    ]
+  }
+
+]
+var gameTime = 90
+var gameTimeid
 
 function startGame() {
+gameTimeid = setInterval(setGameTime, 1000)
   startButton.classList.add('hide')
   shuffledQuestions = questions.sort(() => Math.random() - .5)
   currentQuestionIndex = 0
   questionContainerElement.classList.remove('hide')
   setNextQuestion()
+}
+function setGameTime(){
+  // decrease game time and update ui
 }
 
 function setNextQuestion() {
@@ -56,10 +124,13 @@ function selectAnswer(e) {
   })
   if (shuffledQuestions.length > currentQuestionIndex + 1) {
     nextButton.classList.remove('hide')
+    currentQuestionIndex++
+    setNextQuestion()
   } else {
     startButton.innerText = 'Restart'
     startButton.classList.remove('hide')
   }
+ 
 }
 
 function setStatusClass(element, correct) {
@@ -72,42 +143,10 @@ function setStatusClass(element, correct) {
 }
 
 function clearStatusClass(element) {
-  element.classList.remove('correct')
-  element.classList.remove('wrong')
+  //  element.classList.remove('correct')
+  //  element.classList.remove('wrong')
 }
+startButton.addEventListener('click', startGame)
 
 
-const questions = [
-  {
-    question: 'What is 30 + 2?',
-    answers: [
-      { text: '32', correct: true },
-      { text: '22', correct: false }
-    ]
-  },
-  {
-    question: 'What is the biggest country in the world?',
-    answers: [
-      { text: 'china', correct: false },
-      { text: 'Thailand', correct: false },
-      { text: 'America', correct: false },
-      { text: 'Rusia', correct: true }
-    ]
-  },
-  {
-    question: 'What is the most popular programming language?',
-    answers: [
-      { text: 'Phyton', correct: false },
-      { text: 'JavaScripT', correct: true },
-      { text: 'Java', correct: false },
-      { text: 'CSS', correct: false }
-    ]
-  },
-  {
-    question: 'What is 10 * 2?',
-    answers: [
-      { text: '6', correct: false },
-      { text: '20', correct: true }
-    ]
-  }
-]
+
