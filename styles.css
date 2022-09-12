@@ -9,6 +9,7 @@
   --hue-correct: 145;
 }
 
+
 body {
   --hue: var(--hue-neutral);
   padding: 0;
@@ -36,6 +37,10 @@ body.wrong {
   border-radius: 10px;
   padding: 10px;
   box-shadow: 0 0 10px 3px;
+}
+
+.timer {
+float: right;
 }
 
 .btn-grid {

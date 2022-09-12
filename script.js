@@ -3,7 +3,7 @@ const nextButton = document.getElementById('next-btn')
 const questionContainerElement = document.getElementById('question-container')
 const questionElement = document.getElementById('question')
 const answerButtonsElement = document.getElementById('answer-buttons')
-
+const timerDivElement = document.querySelector('.timer')
 let shuffledQuestions, currentQuestionIndex
 
 
@@ -77,6 +77,7 @@ var gameTime = 90
 var gameTimeid
 
 function startGame() {
+  timerDivElement.textContent = gameTime;
 gameTimeid = setInterval(setGameTime, 1000)
   startButton.classList.add('hide')
   shuffledQuestions = questions.sort(() => Math.random() - .5)
@@ -86,6 +87,9 @@ gameTimeid = setInterval(setGameTime, 1000)
 }
 function setGameTime(){
   // decrease game time and update ui
+  gameTime--
+  timerDivElement.textContent = gameTime;
+  timerDivElement.textContent = gameTime = gameTime - 10 
 }
 
 function setNextQuestion() {
