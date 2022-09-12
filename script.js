@@ -89,15 +89,17 @@ function setGameTime(){
   // decrease game time and update ui
   gameTime--
   timerDivElement.textContent = gameTime;
-  timerDivElement.textContent = gameTime = gameTime - 10 
+   
 }
 
 function setNextQuestion() {
   resetState()
   showQuestion(shuffledQuestions[currentQuestionIndex])
 }
+var penalty = 10 
 
 function showQuestion(question) {
+  gameTime = gameTime - penalty
   questionElement.innerText = question.question
   question.answers.forEach(answer => {
     const button = document.createElement('button')
