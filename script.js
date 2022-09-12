@@ -7,72 +7,7 @@ const timerDivElement = document.querySelector('.timer')
 let shuffledQuestions, currentQuestionIndex
 
 
-const questions = [
-  {
-    question: 'What is 30 + 2?',
-    answers: [
-      { text: '32', correct: true },
-      { text: '22', correct: false },
-      { text: '28', correct: false },
-      { text: '60', correct: false }
-    ]
-  },
-  {
-    question: 'What is the biggest country in the world?',
-    answers: [
-      { text: 'china', correct: false },
-      { text: 'Thailand', correct: false },
-      { text: 'United State of America', correct: false },
-      { text: 'Russia', correct: true }
-    ]
-  },
-  {
-    question: 'What is the most popular programming language?',
-    answers: [
-      { text: 'Phyton', correct: false },
-      { text: 'JavaScript', correct: true },
-      { text: 'Java', correct: false },
-      { text: 'CSS', correct: false }
-    ]
-  },
-  {
-    question: 'What is 10 * 2?',
-    answers: [
-      { text: '6', correct: false },
-      { text: '20', correct: true },
-      { text: '12', correct: false },
-      { text: '8', correct: false }
-    ]
-  },
-  { 
-    question: 'How many stars are in American flag?',
-    answers: [
-      { text: '62', correct: false },
-      { text: '50', correct: true },
-      { text: '32', correct: false },
-      { text: '12', correct: false } 
-    ]
-  },
-  {
-    question: 'Who is the richest person in the world?',
-    answers: [
-      { text: 'Bill Gates', correct: false },
-      { text: 'Obama', correct: false },
-      { text: 'Elon Musk', correct: true },
-      { text: 'Jeff Bezos', correct: false }
-    ]
-  },
-  {
-    question: 'What country has the highest life expectancy?',
-    answers: [
-      { text: 'China', correct: false },
-      { text: 'Hong Kong', correct: true },
-      { text: 'Canada', correct: false },
-      { text: 'Italy', correct: false }
-    ]
-  }
 
-]
 var gameTime = 90
 var gameTimeid
 
@@ -143,10 +78,79 @@ function setStatusClass(element, correct) {
   clearStatusClass(element)
   if (correct) {
     element.classList.add('correct')
+    element.classList.remove('wrong')
   } else {
     element.classList.add('wrong')
+  element.classList.remove('correct')
   }
 }
+
+const questions = [
+  {
+    question: 'What is 30 + 2?',
+    answers: [
+      { text: '32', correct: true },
+      { text: '22', correct: false },
+      { text: '28', correct: false },
+      { text: '60', correct: false }
+    ]
+  },
+  {
+    question: 'What is the biggest country in the world?',
+    answers: [
+      { text: 'china', correct: false },
+      { text: 'Thailand', correct: false },
+      { text: 'United State of America', correct: false },
+      { text: 'Russia', correct: true }
+    ]
+  },
+  {
+    question: 'What is the most popular programming language?',
+    answers: [
+      { text: 'Phyton', correct: false },
+      { text: 'JavaScript', correct: true },
+      { text: 'Java', correct: false },
+      { text: 'CSS', correct: false }
+    ]
+  },
+  {
+    question: 'What is 10 * 2?',
+    answers: [
+      { text: '6', correct: false },
+      { text: '20', correct: true },
+      { text: '12', correct: false },
+      { text: '8', correct: false }
+    ]
+  },
+  { 
+    question: 'How many stars are in American flag?',
+    answers: [
+      { text: '62', correct: false },
+      { text: '50', correct: true },
+      { text: '32', correct: false },
+      { text: '12', correct: false } 
+    ]
+  },
+  {
+    question: 'Who is the richest person in the world?',
+    answers: [
+      { text: 'Bill Gates', correct: false },
+      { text: 'Obama', correct: false },
+      { text: 'Elon Musk', correct: true },
+      { text: 'Jeff Bezos', correct: false }
+    ]
+  },
+  {
+    question: 'What country has the highest life expectancy?',
+    answers: [
+      { text: 'China', correct: false },
+      { text: 'Hong Kong', correct: true },
+      { text: 'Canada', correct: false },
+      { text: 'Italy', correct: false }
+    ]
+  }
+
+]
 
 function clearStatusClass(element) {
   //  element.classList.remove('correct')
