@@ -4,16 +4,15 @@ const questionContainerElement = document.getElementById('question-container')
 const questionElement = document.getElementById('question')
 const answerButtonsElement = document.getElementById('answer-buttons')
 const timerDivElement = document.querySelector('.timer')
-const myTimeout = setTimeout('5000');
+
 let shuffledQuestions, currentQuestionIndex
-
-
 
 var gameTime = 90
 var gameTimeid
 
+
 function startGame() {
-  timerDivElement.textContent = gameTime;
+  imerDivElement.textContent = gameTime;
 gameTimeid = setInterval(setGameTime, 1000)
   startButton.classList.add('hide')
   shuffledQuestions = questions.sort(() => Math.random() - .5)
@@ -21,22 +20,26 @@ gameTimeid = setInterval(setGameTime, 1000)
   questionContainerElement.classList.remove('hide')
   setNextQuestion()
 }
+
 function setGameTime(){
   // decrease game time and update ui
   gameTime--
   timerDivElement.textContent = gameTime;
-   
-}
+  
+ }
+ 
 
 function setNextQuestion() {
-  clearTimeout(myTimeout);setNextQuestion
+  setTimeout(() => {
+    console.log("Delayed for 5 second.");
+  }, "5000")
+ 
   resetState()
   showQuestion(shuffledQuestions[currentQuestionIndex])
 }
-var penalty = 10 
+   var penalty = 10
 
 function showQuestion(question) {
-  
   questionElement.innerText = question.question
   question.answers.forEach(answer => {
     const button = document.createElement('button')
@@ -45,8 +48,6 @@ function showQuestion(question) {
     if (answer.correct) {
       button.dataset.correct = answer.correct
     }
-   
-
     button.addEventListener('click', selectAnswer)
     answerButtonsElement.appendChild(button)
   })
@@ -78,25 +79,24 @@ function selectAnswer(e) {
     startButton.innerText = 'Restart'
     startButton.classList.remove('hide')
   }
- 
 }
 
 function setStatusClass(element, correct) {
   clearStatusClass(element)
   if (correct) {
-  
     element.classList.add('correct')
     element.classList.remove('wrong')
+    console.log(element)
 
   } 
-  
   else {
     console.log("incorrect")
 
     element.classList.add('wrong')
-  element.classList.remove('correct')
+    element.classList.remove('correct')
   }
 }
+
 
 const questions = [
   {
@@ -135,13 +135,13 @@ const questions = [
       { text: '8', correct: false }
     ]
   },
-  { 
+  {
     question: 'How many stars are in American flag?',
     answers: [
       { text: '62', correct: false },
       { text: '50', correct: true },
       { text: '32', correct: false },
-      { text: '12', correct: false } 
+      { text: '12', correct: false }
     ]
   },
   {
@@ -162,14 +162,12 @@ const questions = [
       { text: 'Italy', correct: false }
     ]
   }
-
-]
-
-function clearStatusClass(element) {
+  
+ ]
+  
+ function clearStatusClass(element) {
   //  element.classList.remove('correct')
   //  element.classList.remove('wrong')
-}
-startButton.addEventListener('click', startGame)
-
-
-
+ }
+ startButton.addEventListener('click', startGame)
+ 
