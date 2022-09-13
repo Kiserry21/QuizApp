@@ -1,9 +1,15 @@
 const startButton = document.getElementById('start-btn')
-const nextButton = document.getElementById('next-btn')
+// const nextButton = document.getElementById('next-btn')
+const scorePageElement = document.querySelector('#score')
 const questionContainerElement = document.getElementById('question-container')
 const questionElement = document.getElementById('question')
 const answerButtonsElement = document.getElementById('answer-buttons')
 const timerDivElement = document.querySelector('.timer')
+const countdownElement = document.querySelector('#countdown')
+const scoreAreaElement = document.querySelector('#scoreArea')
+const inNameElement = document.querySelector('#inName')
+const buttonDivElement = document.querySelector('#saveButton')
+const highScoreElement = document.querySelector('#highScores')
 
 let shuffledQuestions, currentQuestionIndex
 
@@ -40,10 +46,10 @@ stopQuiz
   }
 
   setTimeout(() => {
-    console.log("Delayed for 2 second.");
+    console.log("Delayed for 1 second.");
     resetState()
     showQuestion(shuffledQuestions[currentQuestionIndex])
-  }, "2000")
+  }, "1000")
  
   
 }
