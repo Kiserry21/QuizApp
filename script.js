@@ -12,7 +12,7 @@ var gameTimeid
 
 
 function startGame() {
-  imerDivElement.textContent = gameTime;
+  timerDivElement.textContent = gameTime;
 gameTimeid = setInterval(setGameTime, 1000)
   startButton.classList.add('hide')
   shuffledQuestions = questions.sort(() => Math.random() - .5)
@@ -25,18 +25,29 @@ function setGameTime(){
   // decrease game time and update ui
   gameTime--
   timerDivElement.textContent = gameTime;
+if (gameTime <1) clearInterval(gameTimeid)
+stopQuiz
   
  }
  
 
-function setNextQuestion() {
+ function setNextQuestion() {
+
+  if (currentQuestionIndex == 0) {
+    resetState()
+    showQuestion(shuffledQuestions[currentQuestionIndex])
+    return;
+  }
+
   setTimeout(() => {
-    console.log("Delayed for 5 second.");
-  }, "5000")
+    console.log("Delayed for 2 second.");
+    resetState()
+    showQuestion(shuffledQuestions[currentQuestionIndex])
+  }, "2000")
  
-  resetState()
-  showQuestion(shuffledQuestions[currentQuestionIndex])
+  
 }
+
    var penalty = 10
 
 function showQuestion(question) {
@@ -54,8 +65,8 @@ function showQuestion(question) {
 }
 
 function resetState() {
-  clearStatusClass(document.body)
-  nextButton.classList.add('hide')
+   clearStatusClass(document.body)
+  // nextButton.classList.add('hide')
   while (answerButtonsElement.firstChild) {
     answerButtonsElement.removeChild(answerButtonsElement.firstChild)
   }
@@ -72,7 +83,7 @@ function selectAnswer(e) {
     setStatusClass(button, button.dataset.correct)
   })
   if (shuffledQuestions.length > currentQuestionIndex + 1) {
-    nextButton.classList.remove('hide')
+   // nextButton.classList.remove('hide')
     currentQuestionIndex++
     setNextQuestion()
   } else {
