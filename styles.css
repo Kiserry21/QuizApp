@@ -39,9 +39,6 @@ body.wrong {
   box-shadow: 0 0 10px 3px;
 }
 
-#header {
-  position: top-center;
-}
 
 .timer {
 float: right;

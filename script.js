@@ -13,8 +13,10 @@ const highScoreElement = document.querySelector('#highScores')
 
 let shuffledQuestions, currentQuestionIndex
 
-var gameTime = 90
+var gameTime = 70
 var gameTimeid
+var runningTimer
+var score = 0
 
 
 function startGame() {
@@ -31,11 +33,11 @@ function setGameTime(){
   // decrease game time and update ui
   gameTime--
   timerDivElement.textContent = gameTime;
-if (gameTime <1) clearInterval(gameTimeid)
-stopQuiz
-  
- }
- 
+if (gameTime <1) { clearInterval(gameTimeid)
+  stopQuiz()
+  }
+}
+
 
  function setNextQuestion() {
 
@@ -81,6 +83,7 @@ function resetState() {
 function selectAnswer(e) {
   const selectedButton = e.target
   const correct = selectedButton.dataset.correct
+  score += 5
   if (!correct) {
     gameTime = gameTime - penalty
   }
@@ -114,6 +117,8 @@ function setStatusClass(element, correct) {
   }
 }
 
+
+ 
 
 const questions = [
   {
