@@ -27,6 +27,7 @@ gameTimeid = setInterval(setGameTime, 1000)
   shuffledQuestions = questions.sort(() => Math.random() - .5)
   currentQuestionIndex = 0
   questionContainerElement.classList.replace('hide','show')
+  document.querySelector('#quiz-code').textContent=""
   setNextQuestion()
 }
 
@@ -60,6 +61,8 @@ function gameOver() {
   questionContainerElement.classList.remove('show')
   questionContainerElement.classList.add('hide')
   scorePageElement.classList.replace('hide','show')
+  //document.querySelector('#quiz-code').textContent=""
+
   //console.log(score)
   finalScore=score
   clearInterval(gameTimeid)
@@ -111,6 +114,7 @@ function selectAnswer(e) {
     gameOver()
   }
 }
+
 
 function setStatusClass(element, correct) {
   clearStatusClass(element)
