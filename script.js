@@ -20,12 +20,13 @@ var score = 0
 
 
 function startGame() {
+  
   timerDivElement.textContent = gameTime;
 gameTimeid = setInterval(setGameTime, 1000)
   startButton.classList.add('hide')
   shuffledQuestions = questions.sort(() => Math.random() - .5)
   currentQuestionIndex = 0
-  questionContainerElement.classList.remove('hide')
+  questionContainerElement.classList.replace('hide','show')
   setNextQuestion()
 }
 
@@ -33,14 +34,12 @@ function setGameTime(){
   // decrease game time and update ui
   gameTime--
   timerDivElement.textContent = gameTime;
-if (gameTime <1) { clearInterval(gameTimeid)
-  stopQuiz()
   }
-}
+
 
 
  function setNextQuestion() {
-
+  
   if (currentQuestionIndex == 0) {
     resetState()
     showQuestion(shuffledQuestions[currentQuestionIndex])
@@ -53,7 +52,19 @@ if (gameTime <1) { clearInterval(gameTimeid)
     showQuestion(shuffledQuestions[currentQuestionIndex])
   }, "1000")
  
+
+}
+let finalScore;
+
+function gameOver() {
+  questionContainerElement.classList.remove('show')
+  questionContainerElement.classList.add('hide')
+  scorePageElement.classList.replace('hide','show')
+  //console.log(score)
+  finalScore=score
+  clearInterval(gameTimeid)
   
+
 }
 
    var penalty = 10
@@ -62,6 +73,7 @@ function showQuestion(question) {
   questionElement.innerText = question.question
   question.answers.forEach(answer => {
     const button = document.createElement('button')
+  
     button.innerText = answer.text
     button.classList.add('btn')
     if (answer.correct) {
@@ -96,8 +108,7 @@ function selectAnswer(e) {
     currentQuestionIndex++
     setNextQuestion()
   } else {
-    startButton.innerText = 'Restart'
-    startButton.classList.remove('hide')
+    gameOver()
   }
 }
 
@@ -117,10 +128,7 @@ function setStatusClass(element, correct) {
   }
 }
 
-
- 
-
-const questions = [
+  const questions = [
   {
     question: 'What is 30 + 2?',
     answers: [
@@ -191,5 +199,18 @@ const questions = [
   //  element.classList.remove('correct')
   //  element.classList.remove('wrong')
  }
+ let highScoreArray=[]
  startButton.addEventListener('click', startGame)
- 
+ buttonDivElement.addEventListener('click',()=>{
+  const userInput=inNameElement.value
+  console.log(userInput,finalScore)
+  if(userInput !=="") {
+    highScoreArray=JSON.parse(localStorage.getItem('highscores'))||[]
+    const userScore={
+      initials:userInput,
+      score:finalScore
+    }
+    highScoreArray.push(userScore)
+    localStorage.setItem('highscores',JSON.stringify(highScoreArray))
+  }
+ })
