@@ -66,6 +66,7 @@ function gameOver() {
   //console.log(score)
   finalScore=score
   clearInterval(gameTimeid)
+  location.href ="scores.html"
   
 
 }

@@ -1,6 +1,6 @@
 # QuizApp
 
-Try to answer the following general knowledge questions within within the time limit. 
+Try to answer the following general knowledge questions within the time limit. 
  Keep in mind that incorrect answers will penalize your score and time by ten seconds!
 
  this quiz app challenge built based on below acceptance criteria.
