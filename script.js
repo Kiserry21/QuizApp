@@ -66,7 +66,7 @@ function gameOver() {
   //console.log(score)
   finalScore=score
   clearInterval(gameTimeid)
-  location.href ="scores.html"
+
   
 
 }
@@ -99,10 +99,13 @@ function resetState() {
 function selectAnswer(e) {
   const selectedButton = e.target
   const correct = selectedButton.dataset.correct
-  score += 5
-  if (!correct) {
+
+  if(correct) {
+    score += 5;
+  } else {
     gameTime = gameTime - penalty
   }
+  
   setStatusClass(document.body, correct)
   Array.from(answerButtonsElement.children).forEach(button => {
     setStatusClass(button, button.dataset.correct)
@@ -217,5 +220,6 @@ function setStatusClass(element, correct) {
     }
     highScoreArray.push(userScore)
     localStorage.setItem('highscores',JSON.stringify(highScoreArray))
+    location.href ="scores.html"
   }
  })

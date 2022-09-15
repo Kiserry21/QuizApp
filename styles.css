@@ -19,7 +19,7 @@ body {
   height: 100vh;
   justify-content: center;
   align-items: center;
-  background-color: hsl(var(--hue), 100%, 20%);
+  background-color: r(--hue), 10hsl(va 0%, 20%);
 }
 
 body.correct {
@@ -31,6 +31,16 @@ body.wrong {
 }
 
 .container {
+  width: 800px;
+  max-width: 80%;
+  background-color: white;
+  border-radius: 6px;
+  padding: 10px;
+  box-shadow: 0 0 10px 3px;
+}
+
+
+.scores-box {
   width: 800px;
   max-width: 80%;
   background-color: white;

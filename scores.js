@@ -8,8 +8,8 @@ for(let i=0;i<highScoreArray.length;i++)
 {
     var highscore=highScoreArray[i]
     console.log(highscore)
-    const item= document.createElement('span')
-item.textContent=JSON.stringify(highscore)
+    const item= document.createElement('li')
+item.textContent=highscore.initials + ' - ' + highscore.score;
 console.log(item)
 scoresBoxElement.appendChild(item)
     
