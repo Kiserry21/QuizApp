@@ -35,7 +35,10 @@ function setGameTime(){
   // decrease game time and update ui
   gameTime--
   timerDivElement.textContent = gameTime;
-  }
+    if (gameTime <= 0){
+      gameOver();
+    }  
+}
 
 
 
@@ -138,66 +141,66 @@ function setStatusClass(element, correct) {
 
   const questions = [
   {
-    question: 'What is 30 + 2?',
+    question: 'Which of the following scoping type does JavaScript use?',
     answers: [
-      { text: '32', correct: true },
-      { text: '22', correct: false },
-      { text: '28', correct: false },
-      { text: '60', correct: false }
+      { text: 'lexical', correct: true },
+      { text: 'segmental', correct: false },
+      { text: 'sequential', correct: false },
+      { text: 'literal', correct: false }
     ]
   },
   {
-    question: 'What is the biggest country in the world?',
+    question: 'Which of the following is not framework?',
     answers: [
-      { text: 'china', correct: false },
-      { text: 'Thailand', correct: false },
-      { text: 'United State of America', correct: false },
-      { text: 'Russia', correct: true }
+      { text: 'JavaScript.NET', correct: false },
+      { text: 'Cocoa JS', correct: false },
+      { text: 'JQuery', correct: false },
+      { text: 'JavaSript', correct: true }
     ]
   },
   {
     question: 'What is the most popular programming language?',
     answers: [
-      { text: 'Phyton', correct: false },
+      { text: 'Python', correct: false },
       { text: 'JavaScript', correct: true },
       { text: 'Java', correct: false },
       { text: 'CSS', correct: false }
     ]
   },
   {
-    question: 'What is 10 * 2?',
+    question: 'Which of the following is not programming language?',
     answers: [
-      { text: '6', correct: false },
-      { text: '20', correct: true },
-      { text: '12', correct: false },
-      { text: '8', correct: false }
+      { text: 'JavaScript', correct: false },
+      { text: 'HTML', correct: true },
+      { text: 'Java', correct: false },
+      { text: 'C#', correct: false }
     ]
   },
   {
-    question: 'How many stars are in American flag?',
+    question: 'The “function” and ” var” are known as?',
     answers: [
-      { text: '62', correct: false },
-      { text: '50', correct: true },
-      { text: '32', correct: false },
-      { text: '12', correct: false }
+      { text: 'Keywords', correct: false },
+      { text: 'Declaration statements', correct: true },
+      { text: 'Data types', correct: false },
+      { text: 'Prototypes', correct: false }
     ]
   },
   {
-    question: 'Who is the richest person in the world?',
+    question: 'Which of the following variables takes precedence over the others if the names are the same?',
     answers: [
-      { text: 'Bill Gates', correct: false },
-      { text: 'Obama', correct: false },
-      { text: 'Elon Musk', correct: true },
-      { text: 'Jeff Bezos', correct: false }
+      { text: 'Global variable', correct: false },
+      { text: 'The local element ', correct: true },
+      { text: 'None of the above', correct: false },
+      { text: 'The two of the above', correct: false }
     ]
   },
   {
-    question: 'What country has the highest life expectancy?',
+    question: 'Which type of JavaScript language is _?',
     answers: [
-      { text: 'China', correct: false },
-      { text: 'Hong Kong', correct: true },
-      { text: 'Canada', correct: false },
-      { text: 'Italy', correct: false }
+      { text: 'Object-Oriented', correct: false },
+      { text: 'Object-Based', correct: true },
+      { text: 'Assembly-language', correct: false },
+      { text: 'High-level', correct: false }
     ]
   }
   

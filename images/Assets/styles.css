@@ -19,7 +19,7 @@ body {
   height: 100vh;
   justify-content: center;
   align-items: center;
-  background-color: r(--hue), 10hsl(va 0%, 20%);
+  background-color: var(--hue-), 10hsl(va 0%, 20%)
 }
 
 body.correct {

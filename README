@@ -1,6 +1,6 @@
 # QuizApp
 
-Try to answer the following general knowledge questions within the time limit. 
+Try to answer the following programming language questions within the time limit. 
  Keep in mind that incorrect answers will penalize your score and time by ten seconds!
 
  this quiz app challenge built based on below acceptance criteria.
@@ -19,5 +19,13 @@ WHEN the game is over
 THEN I can save my initials and score
 
 
-Mock-Up
-The following screen shoots demonstrates the application functionality:
+# Mock-Up
+
+The following images demonstrates the application functionality:
+
+![alt text](./images/SS1.png)
+![alt text](./images/SS2.png)
+![alt text](./images/SS3.png)
+![alt text](./images/SS4.png)
+
+https://kiserry21.github.io/QuizApp/
