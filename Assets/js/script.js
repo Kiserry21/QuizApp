@@ -64,7 +64,7 @@ function gameOver() {
   questionContainerElement.classList.remove('show')
   questionContainerElement.classList.add('hide')
   scorePageElement.classList.replace('hide','show')
-  //document.querySelector('#quiz-code').textContent=""
+  document.querySelector('#scoreArea').textContent="your score is "+score
 
   //console.log(score)
   finalScore=score
@@ -105,8 +105,10 @@ function selectAnswer(e) {
 
   if(correct) {
     score += 5;
+    document.body.style.backgroundColor = "green"
   } else {
     gameTime = gameTime - penalty
+    document.body.style.backgroundColor = "red"
   }
   
   setStatusClass(document.body, correct)
