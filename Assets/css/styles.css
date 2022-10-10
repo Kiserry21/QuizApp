@@ -49,7 +49,21 @@ body.wrong {
   box-shadow: 0 0 10px 3px;
 }
 
+.inName{
+  position: absolute;
+  height: 3%;
+  min-width: 3%;
+  margin-top: 10px;
+  }
 
+  #saveButton{
+    position: absolute;
+  height: 3%;
+  min-width: 3%;
+  margin-top: 10px;
+  margin-left: 7rem;
+
+  }
 
 
 
