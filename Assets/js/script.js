@@ -64,7 +64,7 @@ function gameOver() {
   questionContainerElement.classList.remove('show')
   questionContainerElement.classList.add('hide')
   scorePageElement.classList.replace('hide','show')
-  document.querySelector('#scoreArea').textContent="your high score is "+score
+  document.querySelector('#scoreArea').textContent="Your High Score is "+score
  //console.log(score)
   finalScore=score
   clearInterval(gameTimeid)
